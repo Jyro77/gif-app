@@ -6,14 +6,19 @@
     display: grid;
     min-height: 100vh;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: 1fr auto;
     gap: 0 16px;
     align-items: center;
+    /* break-inside: avoid;
+    grid-auto-flow: dense; */
 }
 
 .ListOfGifs-item {
     background-color: #eee;
     display: inline-block;
     width: 100%;
+    /*     grid-row: 1 / -1;
+    grid-column: 1; */
 }
 
 @media (min-width: 600px) {
