@@ -1,12 +1,27 @@
+import { useRef, useEffect, useCallback } from "react";
 import ListOfGifs from "components/ListOfGifs";
 import Spinner from "components/Spinner";
 import useGifs from "hooks/useGifs";
+import useNearScreen from "hooks/useNearScreen";
+import debounce from "just-debounce-it";
 
 function SearchResults({ params }) {
     const { keyword } = params;
     const { loading, gifs, setPage } = useGifs({ keyword });
+    const externalRef = useRef();
+    const { show } = useNearScreen({
+        externalRef: loading ? null : externalRef,
+        once: false,
+    });
 
-    const handleNextPage = () => setPage(prevPage => prevPage + 1);
+    const debounceHandleNextPage = useCallback(
+        debounce(() => setPage(prevPage => prevPage + 1, 1000)),
+        [setPage],
+    );
+
+    useEffect(() => {
+        if (show) debounceHandleNextPage();
+    }, [debounceHandleNextPage, show]);
 
     return (
         <>
@@ -18,8 +33,7 @@ function SearchResults({ params }) {
                     <ListOfGifs gifs={gifs} />
                 </>
             )}
-            <br />
-            <button onClick={handleNextPage}>Get Next Page</button>
+            <div id='spot' ref={externalRef}></div>
         </>
     );
 }
