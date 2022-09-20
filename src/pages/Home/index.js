@@ -24,14 +24,18 @@ function Home() {
                 <title>TrueGif App</title>
                 <meta name='description' content='TrueGif a TrueJyro Product' />
             </Helmet>
-            <SearchForm onSubmit={handleSubmit} />
-            <div className='App-main'>
-                <div className='App-results'>
-                    <h3 className='App-title'>Última búsqueda</h3>
-                    <ListOfGifs gifs={gifs} />
-                </div>
-                <div className='App-category'>
-                    <TrendingSearches />
+            <header className='o-header'>
+                <SearchForm onSubmit={handleSubmit} />
+            </header>
+            <div className='App-wrapper'>
+                <div className='App-main'>
+                    <div className='App-results'>
+                        <h3 className='App-title'>Última búsqueda</h3>
+                        <ListOfGifs gifs={gifs} />
+                    </div>
+                    <div className='App-category'>
+                        <TrendingSearches />
+                    </div>
                 </div>
             </div>
         </>

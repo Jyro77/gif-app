@@ -41,9 +41,13 @@ function SearchResults({ params }) {
                     <Helmet>
                         <title>{title}</title>
                         <meta name='description' content={title} />
+                        <meta name='rating' content='General' />
                     </Helmet>
-                    <h3 className='App-title'>{decodeURI(keyword)}</h3>
-                    <ListOfGifs gifs={gifs} />
+                    <div className='App-wrapper'>
+                        <h3 className='App-title'>{decodeURI(keyword)}</h3>
+                        <ListOfGifs gifs={gifs} />
+                        <div id='visor' ref={externalRef}></div>
+                    </div>
                 </>
             )}
             <div id='spot' ref={externalRef}></div>

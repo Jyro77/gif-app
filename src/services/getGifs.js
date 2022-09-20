@@ -1,7 +1,7 @@
 import { API_KEY, API_URL } from "./settings";
 
 export default function getGifs({
-    limit = 5,
+    limit = 15,
     keyword = "morty",
     page = 0,
 } = {}) {
