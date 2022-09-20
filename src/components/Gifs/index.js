@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "wouter";
 import "./style.css";
 
@@ -12,4 +13,4 @@ function Gifs({ title, id, url }) {
     );
 }
 
-export default Gifs;
+export default memo(Gifs);
