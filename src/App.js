@@ -23,6 +23,10 @@ function App() {
                             component={SearchResults}
                         />
                         <Route component={Detail} path='/gif/:id' />
+                        <Route
+                            component={() => <h1> 404 Page Not Found :(</h1>}
+                            path='/404'
+                        />
                     </GifsContextProvider>
                 </section>
             </div>

@@ -4,6 +4,7 @@ import Spinner from "components/Spinner";
 import useGifs from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
+import { Helmet } from "react-helmet";
 
 function SearchResults({ params }) {
     const { keyword } = params;
@@ -14,6 +15,7 @@ function SearchResults({ params }) {
         once: false,
     });
 
+    // eslint-disable-next-line
     const debounceHandleNextPage = useCallback(
         debounce(() => setPage(prevPage => prevPage + 1, 1000)),
         [setPage],
@@ -23,12 +25,23 @@ function SearchResults({ params }) {
         if (show) debounceHandleNextPage();
     }, [debounceHandleNextPage, show]);
 
+    const title = `${keyword} - TrueGif Search Result`;
+
     return (
         <>
             {loading ? (
-                <Spinner />
+                <>
+                    <Helmet>
+                        <title>Loading...</title>
+                    </Helmet>
+                    <Spinner />
+                </>
             ) : (
                 <>
+                    <Helmet>
+                        <title>{title}</title>
+                        <meta name='description' content={title} />
+                    </Helmet>
                     <h3 className='App-title'>{decodeURI(keyword)}</h3>
                     <ListOfGifs gifs={gifs} />
                 </>
