@@ -1,22 +1,11 @@
-import { useCallback } from "react";
 import useGifs from "hooks/useGifs";
 import ListOfGifs from "components/ListOfGifs";
 import TrendingSearches from "components/TrendingSearches";
 import SearchForm from "components/SearchForm";
-import { useLocation } from "wouter";
 import { Helmet } from "react-helmet";
 
 function Home() {
     const { gifs } = useGifs();
-
-    const [, pushLocation] = useLocation();
-
-    const handleSubmit = useCallback(
-        ({ keyword }) => {
-            pushLocation(`/search/${keyword}`);
-        },
-        [pushLocation],
-    );
 
     return (
         <>
@@ -25,7 +14,7 @@ function Home() {
                 <meta name='description' content='TrueGif a TrueJyro Product' />
             </Helmet>
             <header className='o-header'>
-                <SearchForm onSubmit={handleSubmit} />
+                <SearchForm />
             </header>
             <div className='App-wrapper'>
                 <div className='App-main'>

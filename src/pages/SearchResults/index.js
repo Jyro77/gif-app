@@ -5,6 +5,7 @@ import useGifs from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
 import { Helmet } from "react-helmet";
+import SearchForm from "components/SearchForm";
 
 function SearchResults({ params }) {
     const { keyword } = params;
@@ -43,6 +44,9 @@ function SearchResults({ params }) {
                         <meta name='description' content={title} />
                         <meta name='rating' content='General' />
                     </Helmet>
+                    <header className='o-header'>
+                        <SearchForm />
+                    </header>
                     <div className='App-wrapper'>
                         <h3 className='App-title'>{decodeURI(keyword)}</h3>
                         <ListOfGifs gifs={gifs} />
