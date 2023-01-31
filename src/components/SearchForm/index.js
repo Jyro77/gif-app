@@ -39,10 +39,13 @@ function SearchForm() {
                 value={keyword}
                 className={css["c-search-input"]}
             />
-            <select onChange={handlerChangeRating} value={rating}>
+            <select
+                className={css["c-search-list"]}
+                onChange={handlerChangeRating}
+                value={rating}>
                 <option disabled>Rating types</option>
                 {RATING.map(rating => (
-                    <option key={rating}>{rating}</option>
+                    <option key={rating}>{rating.toUpperCase()}</option>
                 ))}
             </select>
         </form>

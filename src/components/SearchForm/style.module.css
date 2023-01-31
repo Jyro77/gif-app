@@ -25,6 +25,9 @@
     background-repeat: no-repeat, repeat;
     background-position: right 0.7em top 50%;
     background-size: 0.65em auto;
+    border-radius: 0 10px 10px 0;
+    /* background: #09f;
+    color: #fff; */
 }
 
 .c-search-input {
@@ -35,7 +38,7 @@
 
 button {
     background: #09f;
-    border: 0;
+    border: none;
     color: #fff;
     padding: 8px 16px;
     font-size: 16px;
