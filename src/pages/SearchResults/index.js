@@ -8,8 +8,8 @@ import { Helmet } from "react-helmet";
 import SearchForm from "components/SearchForm";
 
 function SearchResults({ params }) {
-    const { keyword } = params;
-    const { loading, gifs, setPage } = useGifs({ keyword });
+    const { keyword, rating } = params;
+    const { loading, gifs, setPage } = useGifs({ keyword, rating });
     const externalRef = useRef();
     const { show } = useNearScreen({
         externalRef: loading ? null : externalRef,

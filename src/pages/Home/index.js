@@ -5,6 +5,8 @@ import SearchForm from "components/SearchForm";
 import { Helmet } from "react-helmet";
 
 function Home() {
+    const keyword = localStorage.getItem("lastKeyword");
+    console.log(keyword);
     const { gifs } = useGifs();
 
     return (

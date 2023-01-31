@@ -19,7 +19,7 @@ function App() {
                     <GifsContextProvider>
                         <Route component={Home} path='/' />
                         <Route
-                            path='/search/:keyword'
+                            path='/search/:keyword/:rating?'
                             component={SearchResults}
                         />
                         <Route component={Detail} path='/gif/:id' />
