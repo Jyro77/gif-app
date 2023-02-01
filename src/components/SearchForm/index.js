@@ -5,9 +5,9 @@ import { useLocation } from "wouter";
 
 const RATING = ["g", "pg", "pg-13", "r"];
 
-function SearchForm() {
-    const [keyword, setKeyword] = useState("");
-    const [rating, setRating] = useState(RATING[0]);
+function SearchForm({ initialKeyword = "", initialRating = "g" }) {
+    const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword));
+    const [rating, setRating] = useState(initialRating);
 
     //It takes the value of the input field and pushes it to the URL as a path.
     /*     const handleSubmitSearchForm = e => {
